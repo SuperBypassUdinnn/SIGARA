@@ -1,3 +1,1115 @@
-@import "custom-variables";
-@import "theme-dark";
-@import "theme-neutral";
+// =============================================================================
+// SETTINGS PAGE — Production SCSS for Mendix Studio Pro 11.6.3
+// Scope: .settings-page (strict BEM, no global pollution)
+// Compatible: Mendix nested container / flex layout system
+// Author: Senior UI/UX Engineer
+// Version: 1.0.0
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// DESIGN TOKENS (CSS Custom Properties scoped to settings-page)
+// -----------------------------------------------------------------------------
+.settings-page {
+  // Color Palette
+  --sp-color-bg-base:         #f6f7fb;
+  --sp-color-bg-card:         #ffffff;
+  --sp-color-bg-hover:        #f9fafb;
+  --sp-color-bg-input:        #f9fafb;
+
+  --sp-color-primary:         #3b82f6;
+  --sp-color-primary-light:   #eff6ff;
+  --sp-color-primary-hover:   #2563eb;
+
+  --sp-color-success:         #22c55e;
+  --sp-color-success-light:   #f0fdf4;
+
+  --sp-color-danger:          #ef4444;
+  --sp-color-danger-light:    #fef2f2;
+
+  --sp-color-text-primary:    #1f2937;
+  --sp-color-text-secondary:  #6b7280;
+  --sp-color-text-muted:      #9ca3af;
+  --sp-color-text-inverse:    #ffffff;
+
+  --sp-color-border:          #e5e7eb;
+  --sp-color-border-focus:    #3b82f6;
+
+  // Spacing
+  --sp-space-1:  4px;
+  --sp-space-2:  8px;
+  --sp-space-3:  12px;
+  --sp-space-4:  16px;
+  --sp-space-5:  20px;
+  --sp-space-6:  24px;
+  --sp-space-8:  32px;
+  --sp-space-10: 40px;
+
+  // Border Radius
+  --sp-radius-sm:   6px;
+  --sp-radius-md:   8px;
+  --sp-radius-lg:   12px;
+  --sp-radius-xl:   16px;
+  --sp-radius-full: 9999px;
+
+  // Shadows
+  --sp-shadow-card:       0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --sp-shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --sp-shadow-input-focus: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  --sp-shadow-btn:        0 1px 2px rgba(0, 0, 0, 0.08);
+
+  // Typography Scale
+  --sp-font-xs:   11px;
+  --sp-font-sm:   12px;
+  --sp-font-base: 13px;
+  --sp-font-md:   14px;
+  --sp-font-lg:   15px;
+  --sp-font-xl:   16px;
+  --sp-font-2xl:  18px;
+
+  --sp-font-weight-normal:    400;
+  --sp-font-weight-medium:    500;
+  --sp-font-weight-semibold:  600;
+  --sp-font-weight-bold:      700;
+
+  --sp-line-height-tight:   1.3;
+  --sp-line-height-normal:  1.5;
+  --sp-line-height-relaxed: 1.6;
+
+  // Transitions
+  --sp-transition-fast:   all 0.15s ease;
+  --sp-transition-normal: all 0.2s ease;
+  --sp-transition-slow:   all 0.3s ease;
+
+  // Toggle
+  --sp-toggle-width:   44px;
+  --sp-toggle-height:  24px;
+  --sp-toggle-knob:    18px;
+  --sp-toggle-offset:  3px;
+}
+
+
+// =============================================================================
+// A. PAGE WRAPPER
+// =============================================================================
+.settings-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--sp-color-bg-base);
+  padding: var(--sp-space-8) var(--sp-space-6);
+  box-sizing: border-box;
+
+  // Prevent horizontal overflow in Mendix container
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  // Central content column — max-width keeps readability on wide screens
+  &__inner {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-space-6);
+  }
+
+
+  // ==========================================================================
+  // B. PAGE HEADER
+  // ==========================================================================
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-space-1);
+    padding-bottom: var(--sp-space-4);
+    border-bottom: 1px solid var(--sp-color-border);
+  }
+
+  &__page-title {
+    font-size: var(--sp-font-2xl);
+    font-weight: var(--sp-font-weight-bold);
+    color: var(--sp-color-text-primary);
+    line-height: var(--sp-line-height-tight);
+    margin: 0;
+  }
+
+  &__page-subtitle {
+    font-size: var(--sp-font-base);
+    font-weight: var(--sp-font-weight-normal);
+    color: var(--sp-color-text-secondary);
+    line-height: var(--sp-line-height-normal);
+    margin: 0;
+  }
+
+
+  // ==========================================================================
+  // C. SECTION GROUP — groups cards by category
+  // ==========================================================================
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-space-3);
+  }
+
+  &__section-label {
+    font-size: var(--sp-font-xs);
+    font-weight: var(--sp-font-weight-semibold);
+    color: var(--sp-color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0 var(--sp-space-1);
+    margin: 0;
+  }
+
+
+  // ==========================================================================
+  // D. SECTION CARD
+  // ==========================================================================
+  &__card {
+    background-color: var(--sp-color-bg-card);
+    border: 1px solid var(--sp-color-border);
+    border-radius: var(--sp-radius-lg);
+    box-shadow: var(--sp-shadow-card);
+    overflow: hidden;
+    transition: var(--sp-transition-normal);
+
+    &:hover {
+      box-shadow: var(--sp-shadow-card-hover);
+      border-color: darken(#e5e7eb, 4%);
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-space-3);
+    padding: var(--sp-space-5) var(--sp-space-6);
+    border-bottom: 1px solid var(--sp-color-border);
+    background-color: var(--sp-color-bg-card);
+  }
+
+  &__card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--sp-radius-md);
+    background-color: var(--sp-color-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    // Icon inside (SVG or Mendix glyphicon)
+    .glyphicon,
+    svg {
+      color: var(--sp-color-primary);
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+    }
+
+    // Variant: success icon
+    &--success {
+      background-color: var(--sp-color-success-light);
+
+      .glyphicon,
+      svg {
+        color: var(--sp-color-success);
+      }
+    }
+
+    // Variant: danger icon
+    &--danger {
+      background-color: var(--sp-color-danger-light);
+
+      .glyphicon,
+      svg {
+        color: var(--sp-color-danger);
+      }
+    }
+  }
+
+  &__card-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0; // prevent flex overflow
+  }
+
+  &__card-title {
+    font-size: var(--sp-font-md);
+    font-weight: var(--sp-font-weight-semibold);
+    color: var(--sp-color-text-primary);
+    line-height: var(--sp-line-height-tight);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__card-description {
+    font-size: var(--sp-font-sm);
+    font-weight: var(--sp-font-weight-normal);
+    color: var(--sp-color-text-secondary);
+    line-height: var(--sp-line-height-normal);
+    margin: 0;
+  }
+
+  &__card-body {
+    padding: 0;
+  }
+
+
+  // ==========================================================================
+  // E. ROW ITEM — each individual setting row inside a card
+  // ==========================================================================
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-space-4);
+    padding: var(--sp-space-4) var(--sp-space-6);
+    min-height: 60px;
+    border-bottom: 1px solid var(--sp-color-border);
+    transition: background-color var(--sp-transition-fast);
+
+    // Remove bottom border from last row
+    &:last-child {
+      border-bottom: none;
+    }
+
+    // Hover state — very subtle
+    &:hover {
+      background-color: var(--sp-color-bg-hover);
+    }
+
+    // Variant: clickable row (e.g., navigate to sub-page)
+    &--clickable {
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--sp-color-bg-hover);
+
+        .settings-page__row-chevron {
+          transform: translateX(2px);
+          color: var(--sp-color-primary);
+        }
+      }
+
+      &:active {
+        background-color: var(--sp-color-primary-light);
+      }
+    }
+
+    // Variant: destructive row (e.g., delete account)
+    &--danger {
+      &:hover {
+        background-color: var(--sp-color-danger-light);
+      }
+
+      .settings-page__row-label {
+        color: var(--sp-color-danger);
+      }
+    }
+  }
+
+  // Left side of row
+  &__row-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1 1 auto;
+    min-width: 0; // prevent text overflow from breaking layout
+  }
+
+  &__row-label {
+    font-size: var(--sp-font-md);
+    font-weight: var(--sp-font-weight-medium);
+    color: var(--sp-color-text-primary);
+    line-height: var(--sp-line-height-tight);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__row-hint {
+    font-size: var(--sp-font-sm);
+    font-weight: var(--sp-font-weight-normal);
+    color: var(--sp-color-text-secondary);
+    line-height: var(--sp-line-height-normal);
+    margin: 0;
+
+    // Allow multi-line hint text
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  // Right side of row
+  &__row-right {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-space-3);
+    flex-shrink: 0;
+  }
+
+  // Chevron arrow for clickable rows
+  &__row-chevron {
+    color: var(--sp-color-text-muted);
+    font-size: 12px;
+    transition: var(--sp-transition-fast);
+    line-height: 1;
+  }
+
+  // Status badge inline in row
+  &__row-badge {
+    font-size: var(--sp-font-xs);
+    font-weight: var(--sp-font-weight-semibold);
+    padding: 2px var(--sp-space-2);
+    border-radius: var(--sp-radius-full);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+
+    &--active {
+      background-color: var(--sp-color-success-light);
+      color: var(--sp-color-success);
+    }
+
+    &--inactive {
+      background-color: #f3f4f6;
+      color: var(--sp-color-text-muted);
+    }
+
+    &--warning {
+      background-color: #fffbeb;
+      color: #d97706;
+    }
+  }
+
+
+  // ==========================================================================
+  // F. TOGGLE SWITCH
+  // ==========================================================================
+  &__toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-space-2);
+    flex-shrink: 0;
+  }
+
+  // Hide native Mendix checkbox input — toggle uses label
+  &__toggle-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // The toggle track
+  &__toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: var(--sp-toggle-width);
+    height: var(--sp-toggle-height);
+    border-radius: var(--sp-radius-full);
+    background-color: #d1d5db;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+    user-select: none;
+
+    // The knob
+    &::after {
+      content: '';
+      position: absolute;
+      left: var(--sp-toggle-offset);
+      width: var(--sp-toggle-knob);
+      height: var(--sp-toggle-knob);
+      border-radius: 50%;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      transition: left 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease;
+    }
+
+    // Hover state
+    &:hover {
+      background-color: #9ca3af;
+    }
+
+    // Active (ON) state — controlled via class
+    &--active,
+    &[data-active="true"] {
+      background-color: var(--sp-color-primary);
+
+      &::after {
+        left: calc(var(--sp-toggle-width) - var(--sp-toggle-knob) - var(--sp-toggle-offset));
+      }
+
+      &:hover {
+        background-color: var(--sp-color-primary-hover);
+      }
+    }
+
+    // Focus ring (accessibility)
+    &:focus-visible,
+    &:focus {
+      outline: none;
+      box-shadow: var(--sp-shadow-input-focus);
+    }
+  }
+
+  &__toggle-label {
+    font-size: var(--sp-font-sm);
+    color: var(--sp-color-text-secondary);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+
+  // ==========================================================================
+  // G. INPUT FIELD
+  // ==========================================================================
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-space-2);
+    width: 100%;
+  }
+
+  &__input-label {
+    font-size: var(--sp-font-sm);
+    font-weight: var(--sp-font-weight-medium);
+    color: var(--sp-color-text-secondary);
+    margin: 0;
+  }
+
+  &__input {
+    width: 100%;
+    height: 38px;
+    padding: 0 var(--sp-space-3);
+    font-size: var(--sp-font-md);
+    color: var(--sp-color-text-primary);
+    background-color: var(--sp-color-bg-input);
+    border: 1px solid var(--sp-color-border);
+    border-radius: var(--sp-radius-md);
+    box-sizing: border-box;
+    transition: var(--sp-transition-fast);
+    outline: none;
+    -webkit-appearance: none;
+
+    &::placeholder {
+      color: var(--sp-color-text-muted);
+    }
+
+    &:hover {
+      border-color: #d1d5db;
+      background-color: #ffffff;
+    }
+
+    &:focus {
+      border-color: var(--sp-color-border-focus);
+      background-color: #ffffff;
+      box-shadow: var(--sp-shadow-input-focus);
+    }
+
+    &:disabled {
+      background-color: #f3f4f6;
+      color: var(--sp-color-text-muted);
+      cursor: not-allowed;
+      border-color: var(--sp-color-border);
+    }
+
+    // Inline short input (e.g., next to a label in a row)
+    &--inline {
+      width: 180px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__select {
+    @extend .settings-page__input;
+    cursor: pointer;
+    padding-right: var(--sp-space-8);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--sp-space-3) center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+
+  // ==========================================================================
+  // H. BUTTONS
+  // ==========================================================================
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-space-2);
+    height: 36px;
+    padding: 0 var(--sp-space-4);
+    font-size: var(--sp-font-sm);
+    font-weight: var(--sp-font-weight-medium);
+    border-radius: var(--sp-radius-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--sp-transition-fast);
+    white-space: nowrap;
+    text-decoration: none;
+    box-shadow: var(--sp-shadow-btn);
+    outline: none;
+    -webkit-appearance: none;
+    user-select: none;
+    box-sizing: border-box;
+
+    &:focus-visible {
+      box-shadow: var(--sp-shadow-input-focus);
+    }
+
+    &:disabled,
+    &[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    // --- Variants ---
+
+    // Primary — blue CTA
+    &--primary {
+      background-color: var(--sp-color-primary);
+      color: var(--sp-color-text-inverse);
+      border-color: var(--sp-color-primary);
+
+      &:hover {
+        background-color: var(--sp-color-primary-hover);
+        border-color: var(--sp-color-primary-hover);
+      }
+
+      &:active {
+        background-color: #1d4ed8;
+        border-color: #1d4ed8;
+      }
+    }
+
+    // Secondary — outlined, neutral
+    &--secondary {
+      background-color: #ffffff;
+      color: var(--sp-color-text-primary);
+      border-color: var(--sp-color-border);
+
+      &:hover {
+        background-color: var(--sp-color-bg-hover);
+        border-color: #d1d5db;
+      }
+
+      &:active {
+        background-color: #f3f4f6;
+      }
+    }
+
+    // Ghost — minimal, no border
+    &--ghost {
+      background-color: transparent;
+      color: var(--sp-color-text-secondary);
+      border-color: transparent;
+      box-shadow: none;
+
+      &:hover {
+        background-color: var(--sp-color-bg-hover);
+        color: var(--sp-color-text-primary);
+      }
+
+      &:active {
+        background-color: #f3f4f6;
+      }
+    }
+
+    // Danger — destructive action
+    &--danger {
+      background-color: #ffffff;
+      color: var(--sp-color-danger);
+      border-color: #fca5a5;
+
+      &:hover {
+        background-color: var(--sp-color-danger-light);
+        border-color: var(--sp-color-danger);
+      }
+
+      &:active {
+        background-color: #fee2e2;
+      }
+    }
+
+    // Danger filled
+    &--danger-filled {
+      background-color: var(--sp-color-danger);
+      color: var(--sp-color-text-inverse);
+      border-color: var(--sp-color-danger);
+
+      &:hover {
+        background-color: #dc2626;
+        border-color: #dc2626;
+      }
+    }
+
+    // Size variants
+    &--sm {
+      height: 30px;
+      padding: 0 var(--sp-space-3);
+      font-size: var(--sp-font-xs);
+    }
+
+    &--lg {
+      height: 42px;
+      padding: 0 var(--sp-space-6);
+      font-size: var(--sp-font-md);
+    }
+
+    &--full-width {
+      width: 100%;
+    }
+  }
+
+
+  // ==========================================================================
+  // I. AVATAR / PROFILE DISPLAY
+  // ==========================================================================
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-space-4);
+    padding: var(--sp-space-5) var(--sp-space-6);
+  }
+
+  &__avatar {
+    position: relative;
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--sp-color-primary-light);
+    border: 2px solid var(--sp-color-border);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    // Fallback initials
+    &-initials {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--sp-font-lg);
+      font-weight: var(--sp-font-weight-semibold);
+      color: var(--sp-color-primary);
+      background-color: var(--sp-color-primary-light);
+    }
+
+    // Edit overlay
+    &-edit {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 22px;
+      background-color: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      font-size: 10px;
+      color: #ffffff;
+
+      .settings-page__avatar:hover & {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+  }
+
+  &__profile-name {
+    font-size: var(--sp-font-xl);
+    font-weight: var(--sp-font-weight-semibold);
+    color: var(--sp-color-text-primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__profile-email {
+    font-size: var(--sp-font-sm);
+    color: var(--sp-color-text-secondary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  // ==========================================================================
+  // J. THEME SELECTOR
+  // ==========================================================================
+  &__theme-options {
+    display: flex;
+    flex-direction: row;
+    gap: var(--sp-space-3);
+    flex-wrap: wrap;
+  }
+
+  &__theme-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-space-2);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__theme-preview {
+    width: 72px;
+    height: 48px;
+    border-radius: var(--sp-radius-md);
+    border: 2px solid var(--sp-color-border);
+    overflow: hidden;
+    transition: var(--sp-transition-fast);
+    box-shadow: var(--sp-shadow-card);
+    position: relative;
+
+    &--light {
+      background-color: #ffffff;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        height: 6px;
+        background-color: #e5e7eb;
+        border-radius: 3px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 22px;
+        left: 8px;
+        width: 40%;
+        height: 4px;
+        background-color: #f3f4f6;
+        border-radius: 2px;
+      }
+    }
+
+    &--dark {
+      background-color: #111827;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        height: 6px;
+        background-color: #374151;
+        border-radius: 3px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 22px;
+        left: 8px;
+        width: 40%;
+        height: 4px;
+        background-color: #1f2937;
+        border-radius: 2px;
+      }
+    }
+
+    &--system {
+      background: linear-gradient(135deg, #ffffff 50%, #111827 50%);
+    }
+
+    // Selected state
+    &--selected,
+    .settings-page__theme-option--selected & {
+      border-color: var(--sp-color-primary);
+      box-shadow: 0 0 0 3px var(--sp-color-primary-light);
+    }
+
+    // Hover state
+    .settings-page__theme-option:hover & {
+      border-color: #9ca3af;
+    }
+  }
+
+  &__theme-label {
+    font-size: var(--sp-font-xs);
+    font-weight: var(--sp-font-weight-medium);
+    color: var(--sp-color-text-secondary);
+
+    .settings-page__theme-option--selected & {
+      color: var(--sp-color-primary);
+    }
+  }
+
+
+  // ==========================================================================
+  // K. DIVIDER
+  // ==========================================================================
+  &__divider {
+    height: 1px;
+    background-color: var(--sp-color-border);
+    border: none;
+    margin: var(--sp-space-2) 0;
+  }
+
+
+  // ==========================================================================
+  // L. DANGER ZONE CARD
+  // ==========================================================================
+  &__card--danger-zone {
+    border-color: #fca5a5;
+
+    .settings-page__card-header {
+      background-color: #fff5f5;
+      border-bottom-color: #fca5a5;
+    }
+
+    .settings-page__card-title {
+      color: var(--sp-color-danger);
+    }
+  }
+
+
+  // ==========================================================================
+  // M. LOGOUT AREA (Footer of page)
+  // ==========================================================================
+  &__logout-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-space-3);
+    padding-top: var(--sp-space-2);
+  }
+
+  &__logout-hint {
+    font-size: var(--sp-font-sm);
+    color: var(--sp-color-text-muted);
+    margin: 0;
+  }
+
+
+  // ==========================================================================
+  // N. INLINE SUCCESS / ERROR FEEDBACK
+  // ==========================================================================
+  &__feedback {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-space-2);
+    font-size: var(--sp-font-sm);
+    font-weight: var(--sp-font-weight-medium);
+    padding: var(--sp-space-2) var(--sp-space-3);
+    border-radius: var(--sp-radius-md);
+    margin-top: var(--sp-space-2);
+
+    &--success {
+      background-color: var(--sp-color-success-light);
+      color: darken(#22c55e, 10%);
+      border: 1px solid #bbf7d0;
+    }
+
+    &--error {
+      background-color: var(--sp-color-danger-light);
+      color: darken(#ef4444, 10%);
+      border: 1px solid #fca5a5;
+    }
+  }
+
+
+  // ==========================================================================
+  // O. LOADING STATE
+  // ==========================================================================
+  &__skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-space-2);
+
+    &-line {
+      height: 14px;
+      background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+      background-size: 200% 100%;
+      border-radius: var(--sp-radius-sm);
+      animation: sp-skeleton-shimmer 1.5s infinite;
+
+      &--short  { width: 40%; }
+      &--medium { width: 65%; }
+      &--full   { width: 100%; }
+    }
+  }
+
+  @keyframes sp-skeleton-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+
+  // ==========================================================================
+  // P. RESPONSIVE — Tablet (max-width: 768px)
+  // ==========================================================================
+  @media (max-width: 768px) {
+    padding: var(--sp-space-5) var(--sp-space-4);
+
+    &__row {
+      padding: var(--sp-space-4);
+
+      // On very small screens, allow wrap so right side doesn't get squished
+      &--wrap-mobile {
+        flex-wrap: wrap;
+
+        .settings-page__row-right {
+          width: 100%;
+          margin-top: var(--sp-space-2);
+        }
+      }
+    }
+
+    &__card-header {
+      padding: var(--sp-space-4);
+    }
+
+    &__profile {
+      padding: var(--sp-space-4);
+    }
+
+    &__input--inline {
+      width: 140px;
+    }
+
+    &__theme-preview {
+      width: 60px;
+      height: 40px;
+    }
+  }
+
+  // Very small screen (max-width: 480px)
+  @media (max-width: 480px) {
+    padding: var(--sp-space-4) var(--sp-space-3);
+
+    &__inner {
+      gap: var(--sp-space-4);
+    }
+
+    &__page-title {
+      font-size: var(--sp-font-xl);
+    }
+
+    &__row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--sp-space-3);
+      padding: var(--sp-space-4) var(--sp-space-4);
+
+      &--toggle {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    &__row-right {
+      width: 100%;
+    }
+
+    &__input--inline {
+      width: 100%;
+    }
+
+    &__btn--full-width-mobile {
+      width: 100%;
+    }
+  }
+}
+
+// =============================================================================
+// MENDIX COMPATIBILITY LAYER
+// Fixes common Mendix-generated class conflicts inside .settings-page
+// These are scoped — not global.
+// =============================================================================
+.settings-page {
+
+  // Mendix mx-layoutgrid / mx-grid — prevent unintended spacing reset
+  .mx-layoutgrid,
+  .mx-grid {
+    margin: 0;
+    padding: 0;
+  }
+
+  // Mendix container — ensure flex is not blocked
+  .mx-container,
+  .mx-container-nested {
+    min-width: 0; // critical for flex children
+  }
+
+  // Mendix dataview — remove default padding if inside a card
+  .mx-dataview {
+    padding: 0;
+  }
+
+  // Mendix listview — remove default margin
+  .mx-listview {
+    margin: 0;
+  }
+
+  // Mendix text widget — normalize
+  .mx-text {
+    margin: 0;
+    line-height: inherit;
+  }
+
+  // Mendix button — preserve our custom btn styles
+  .mx-button,
+  .btn {
+    &.settings-page__btn {
+      // Allow our styles to take precedence
+      font-family: inherit;
+      font-size: inherit;
+    }
+  }
+
+  // Mendix form group — remove default margin inside settings rows
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  // Mendix checkbox / boolean — reset for custom toggle
+  input[type="checkbox"].settings-page__toggle-input {
+    appearance: none;
+    -webkit-appearance: none;
+  }
+}
