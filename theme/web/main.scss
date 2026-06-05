@@ -1,3 +1,158 @@
 @import "custom-variables";
 @import "theme-dark";
 @import "theme-neutral";
+
+/* =====================================
+   DECISION PAGE - SIGARA
+   White Dominant + Green Accent
+===================================== */
+
+/* PAGE BACKGROUND */
+.decision-list {
+    background: #f7faf8 !important;
+    padding: 20px !important;
+}
+
+/* =====================================
+   MITIGATION CARD
+===================================== */
+.mitigation-card {
+    background: #ffffff !important;
+
+    border-radius: 28px !important;
+
+    padding: 24px !important;
+    margin-bottom: 20px !important;
+
+    border: 1px solid #edf3ef !important;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.04) !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+
+    gap: 12px !important;
+}
+
+/* =====================================
+   TITLE
+===================================== */
+.decision-title {
+    display: block !important;
+
+    font-size: 30px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.2 !important;
+
+    color: #1f2d2a !important;
+
+    margin: 0 !important;
+}
+
+/* =====================================
+   DESCRIPTION
+===================================== */
+.decision-description {
+    display: block !important;
+
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+
+    color: #68756f !important;
+
+    margin: 0 0 12px 0 !important;
+}
+
+/* =====================================
+   BUTTON WRAPPER
+===================================== */
+.decision-button {
+    width: fit-content !important;
+}
+
+/* =====================================
+   BUTTON
+===================================== */
+.decision-button .mx-button,
+.decision-button button,
+.decision-button .btn,
+.decision-button a.btn {
+    background: #39a66a !important;
+
+    border: none !important;
+    border-radius: 14px !important;
+
+    color: #ffffff !important;
+
+    font-size: 15px !important;
+    font-weight: 600 !important;
+
+    padding: 12px 22px !important;
+
+    min-width: 150px !important;
+
+    box-shadow:
+        0 4px 14px rgba(57, 166, 106, 0.18) !important;
+
+    transition: all 0.25s ease !important;
+}
+
+/* =====================================
+   BUTTON HOVER
+===================================== */
+.decision-button .mx-button:hover,
+.decision-button button:hover,
+.decision-button .btn:hover,
+.decision-button a.btn:hover {
+    background: #2f915a !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 8px 18px rgba(57, 166, 106, 0.25) !important;
+}
+
+/* =====================================
+   BUTTON CLICK
+===================================== */
+.decision-button .mx-button:active,
+.decision-button button:active,
+.decision-button .btn:active,
+.decision-button a.btn:active {
+    transform: scale(0.98) !important;
+}
+
+/* BUTTON KHUSUS DECISION PAGE */
+.decision-list .mx-button,
+.decision-list .btn,
+.decision-list button {
+    background: #39a66a !important;
+    color: white !important;
+
+    border: none !important;
+    border-radius: 14px !important;
+
+    padding: 12px 22px !important;
+
+    font-weight: 600 !important;
+
+    box-shadow:
+        0 4px 14px rgba(57,166,106,.18) !important;
+
+    transition: all .25s ease !important;
+}
+
+/* HOVER */
+.decision-list .mx-button:hover,
+.decision-list .btn:hover,
+.decision-list button:hover {
+    background: #2f915a !important;
+
+    color: white !important;
+
+    transform: translateY(-2px) !important;
+}

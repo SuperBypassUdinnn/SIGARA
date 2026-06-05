@@ -29920,6 +29920,63 @@ Do not change this file because it is core styling. Customizing core files will 
 /* Labels */
 /* Groupbox */
 /* Callouts */
+:root {
+  /* Brand Colors */
+  --brand-primary: #264ae5;
+  --brand-success: #16aa16;
+  --brand-warning: #cd8501;
+  --brand-danger: #EA3337;
+  --brand-default: color-mix(in srgb, var(--brand-primary) 10%, #e7e7e9);
+  --gray: #B8BABF;
+}
+
+/*
+DISCLAIMER:
+This mapping file provides defaults for sass variables to provide backwards compatibility for modules which are still using SASS variables.
+Do not change this file because it is core styling. Customizing core files will make updating Atlas much more difficult in the future.
+*/
+/* Brand Colors */
+/* Gray Shades */
+/* Default Font Size & Color */
+/* Global Border */
+/* Topbar */
+/* Sidebar */
+/* Topbar mobile */
+/* Navbar Brand Name */
+/* Background Colors */
+/* Default Link Color */
+/* Font Family */
+/* Font Sizes */
+/* Font Weights */
+/* Header Font Sizes */
+/* Header Font Weight */
+/* Line Height */
+/* Header Margin */
+/* Font Colors */
+/* Navigation */
+/* Sidebar Navigation */
+/* Topbar Navigation */
+/* Shadows */
+/* Form Inputs */
+/* Buttons */
+/* Header */
+/* Grid */
+/* Tabs */
+/* Modal */
+/* Data View */
+/* Alerts */
+/* Wizard */
+/* Labels */
+/* Groupbox */
+/* Callouts */
+/* Timeline */
+/* Accordion */
+/* Spacing */
+/* Brand Variants */
+/* Alerts */
+/* Labels */
+/* Groupbox */
+/* Callouts */
 :root.theme-dark {
   --brand-primary: color-mix(in srgb, #264ae5, var(--color-base) 25%);
   --brand-success: color-mix(in srgb, #1ac61a, var(--color-base) 25%);
@@ -30010,6 +30067,126 @@ Do not change this file because it is core styling. Customizing core files will 
   --border-radius-s: 0;
   --border-radius-m: 1px;
   --border-radius-l: 2px;
+}
+
+/* =====================================
+   DECISION PAGE - SIGARA
+   White Dominant + Green Accent
+===================================== */
+/* PAGE BACKGROUND */
+.decision-list {
+  background: #f7faf8 !important;
+  padding: 20px !important;
+}
+
+/* =====================================
+   MITIGATION CARD
+===================================== */
+.mitigation-card {
+  background: #ffffff !important;
+  border-radius: 28px !important;
+  padding: 24px !important;
+  margin-bottom: 20px !important;
+  border: 1px solid #edf3ef !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+
+/* =====================================
+   TITLE
+===================================== */
+.decision-title {
+  display: block !important;
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: #1f2d2a !important;
+  margin: 0 !important;
+}
+
+/* =====================================
+   DESCRIPTION
+===================================== */
+.decision-description {
+  display: block !important;
+  font-size: 16px !important;
+  line-height: 1.8 !important;
+  color: #68756f !important;
+  margin: 0 0 12px 0 !important;
+}
+
+/* =====================================
+   BUTTON WRAPPER
+===================================== */
+.decision-button {
+  width: fit-content !important;
+}
+
+/* =====================================
+   BUTTON
+===================================== */
+.decision-button .mx-button,
+.decision-button button,
+.decision-button .btn,
+.decision-button a.btn {
+  background: #39a66a !important;
+  border: none !important;
+  border-radius: 14px !important;
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  padding: 12px 22px !important;
+  min-width: 150px !important;
+  box-shadow: 0 4px 14px rgba(57, 166, 106, 0.18) !important;
+  transition: all 0.25s ease !important;
+}
+
+/* =====================================
+   BUTTON HOVER
+===================================== */
+.decision-button .mx-button:hover,
+.decision-button button:hover,
+.decision-button .btn:hover,
+.decision-button a.btn:hover {
+  background: #2f915a !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 18px rgba(57, 166, 106, 0.25) !important;
+}
+
+/* =====================================
+   BUTTON CLICK
+===================================== */
+.decision-button .mx-button:active,
+.decision-button button:active,
+.decision-button .btn:active,
+.decision-button a.btn:active {
+  transform: scale(0.98) !important;
+}
+
+/* BUTTON KHUSUS DECISION PAGE */
+.decision-list .mx-button,
+.decision-list .btn,
+.decision-list button {
+  background: #39a66a !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 14px !important;
+  padding: 12px 22px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(57, 166, 106, 0.18) !important;
+  transition: all 0.25s ease !important;
+}
+
+/* HOVER */
+.decision-list .mx-button:hover,
+.decision-list .btn:hover,
+.decision-list button:hover {
+  background: #2f915a !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
 }
 
 /*# sourceMappingURL=theme.compiled.css.map */
