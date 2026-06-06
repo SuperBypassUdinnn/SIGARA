@@ -30551,4 +30551,181 @@ Do not change this file because it is core styling. Customizing core files will 
   line-height: 1.7 !important;
 }
 
+:root {
+  /* Brand Colors */
+  --brand-primary: #264ae5;
+  --brand-success: #16aa16;
+  --brand-warning: #cd8501;
+  --brand-danger: #EA3337;
+  --brand-default: color-mix(in srgb, var(--brand-primary) 10%, #e7e7e9);
+  --gray: #B8BABF;
+}
+
+/*
+DISCLAIMER:
+This mapping file provides defaults for sass variables to provide backwards compatibility for modules which are still using SASS variables.
+Do not change this file because it is core styling. Customizing core files will make updating Atlas much more difficult in the future.
+*/
+/* Brand Colors */
+/* Gray Shades */
+/* Default Font Size & Color */
+/* Global Border */
+/* Topbar */
+/* Sidebar */
+/* Topbar mobile */
+/* Navbar Brand Name */
+/* Background Colors */
+/* Default Link Color */
+/* Font Family */
+/* Font Sizes */
+/* Font Weights */
+/* Header Font Sizes */
+/* Header Font Weight */
+/* Line Height */
+/* Header Margin */
+/* Font Colors */
+/* Navigation */
+/* Sidebar Navigation */
+/* Topbar Navigation */
+/* Shadows */
+/* Form Inputs */
+/* Buttons */
+/* Header */
+/* Grid */
+/* Tabs */
+/* Modal */
+/* Data View */
+/* Alerts */
+/* Wizard */
+/* Labels */
+/* Groupbox */
+/* Callouts */
+/* Timeline */
+/* Accordion */
+/* Spacing */
+/* Brand Variants */
+/* Alerts */
+/* Labels */
+/* Groupbox */
+/* Callouts */
+.login-background {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1565c0, #29b6f6, #43a047);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* ✅ Ubah dari center ke flex-start */
+  padding: 40px 20px 20px;
+  /* ✅ padding-top 40px agar ada jarak dari atas */
+}
+
+.login-card {
+  width: 100%;
+  max-width: 340px;
+  background: white;
+  border-radius: 20px;
+  padding: 30px 24px;
+  margin: 0 auto;
+  /* ✅ Hapus margin-top */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.login-lock {
+  font-size: 40px;
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.login-title {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login-subtitle {
+  /* ✅ Tambahkan titik (.) yang hilang */
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.btn-login {
+  width: 100%;
+  border-radius: 12px !important;
+  height: 48px;
+  background: linear-gradient(90deg, #2e7d32, #43a047) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.mx-textbox input {
+  border-radius: 12px !important;
+  border: 1px solid #d9e2ec !important;
+  height: 48px !important;
+  padding: 12px !important;
+  font-size: 14px;
+}
+
+.login-background::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  left: -80px;
+  bottom: -80px;
+}
+
+.login-background::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  right: -50px;
+  top: 100px;
+}
+
+.logo-login {
+  width: 100px;
+  /* Sesuaikan ukuran */
+  height: auto;
+  /* Menjaga proporsi */
+  margin-bottom: 20px;
+  /* Memberi jarak ke bawah */
+  margin-left: 75px;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Ini yang membuat semua isi di dalam card ke tengah */
+  justify-content: center;
+}
+
+.logo-login1 {
+  width: 50px;
+  /* Sesuaikan ukuran */
+  height: auto;
+  /* Menjaga proporsi */
+  margin-bottom: 20px;
+  /* Memberi jarak ke bawah */
+  margin-left: 75px;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Ini yang membuat semua isi di dalam card ke tengah */
+  justify-content: center;
+}
+
 /*# sourceMappingURL=theme.compiled.css.map */
