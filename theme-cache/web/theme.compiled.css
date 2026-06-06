@@ -29977,6 +29977,212 @@ Do not change this file because it is core styling. Customizing core files will 
 /* Labels */
 /* Groupbox */
 /* Callouts */
+:root {
+  /* Brand Colors */
+  --brand-primary: #264ae5;
+  --brand-success: #16aa16;
+  --brand-warning: #cd8501;
+  --brand-danger: #EA3337;
+  --brand-default: color-mix(in srgb, var(--brand-primary) 10%, #e7e7e9);
+  --gray: #B8BABF;
+}
+
+/*
+DISCLAIMER:
+This mapping file provides defaults for sass variables to provide backwards compatibility for modules which are still using SASS variables.
+Do not change this file because it is core styling. Customizing core files will make updating Atlas much more difficult in the future.
+*/
+/* Brand Colors */
+/* Gray Shades */
+/* Default Font Size & Color */
+/* Global Border */
+/* Topbar */
+/* Sidebar */
+/* Topbar mobile */
+/* Navbar Brand Name */
+/* Background Colors */
+/* Default Link Color */
+/* Font Family */
+/* Font Sizes */
+/* Font Weights */
+/* Header Font Sizes */
+/* Header Font Weight */
+/* Line Height */
+/* Header Margin */
+/* Font Colors */
+/* Navigation */
+/* Sidebar Navigation */
+/* Topbar Navigation */
+/* Shadows */
+/* Form Inputs */
+/* Buttons */
+/* Header */
+/* Grid */
+/* Tabs */
+/* Modal */
+/* Data View */
+/* Alerts */
+/* Wizard */
+/* Labels */
+/* Groupbox */
+/* Callouts */
+/* Timeline */
+/* Accordion */
+/* Spacing */
+/* Brand Variants */
+/* Alerts */
+/* Labels */
+/* Groupbox */
+/* Callouts */
+:root.theme-dark {
+  --brand-primary: color-mix(in srgb, #264ae5, var(--color-base) 25%);
+  --brand-success: color-mix(in srgb, #1ac61a, var(--color-base) 25%);
+  --brand-warning: color-mix(in srgb, #f0b000, var(--color-base) 25%);
+  --brand-danger: color-mix(in srgb, #ea3337, var(--color-base) 25%);
+  --color-base: rgb(30, 30, 30);
+  --color-contrast: #ffffff;
+  --border-color-default: #6c757d;
+  --bg-color: var(--brand-primary-50);
+  --bg-color-secondary: var(--brand-primary-100);
+  --font-color-header: color-mix(in srgb, var(--brand-primary-900), white 80%);
+  --font-color-detail: color-mix(in srgb, var(--brand-primary-900), white 60%);
+  --shadow-color: rgb(50, 50, 50);
+  --topbar-bg: linear-gradient(to bottom, var(--brand-primary-400), var(--brand-primary-300));
+  --sidebar-bg: linear-gradient(to bottom, var(--brand-primary-300), var(--brand-primary-200));
+  --link-color: var(--brand-primary-900);
+  --navigation-color: var(--color-contrast);
+  --navigation-color-hover: var(--color-contrast);
+  --navigation-color-active: var(--color-contrast);
+  --navigation-sub-color: var(--color-contrast);
+  --navigation-sub-color-hover: var(--color-contrast);
+  --navigation-sub-color-active: var(--color-contrast);
+  --navsidebar-sub-bg: var(--brand-primary-800);
+  --navtopbar-bg: var(--topbar-bg);
+  --navtopbar-bg-hover: rgba(255, 255, 255, 0.1);
+  --navtopbar-bg-active: rgba(255, 255, 255, 0.2);
+  --navtopbar-color: var(--black);
+  --navtopbar-color-hover: color-mix(in srgb, var(--navtopbar-color) 85%, var(--color-base));
+  --navtopbar-color-active: color-mix(in srgb, var(--navtopbar-color) 85%, var(--color-base));
+  --navtopbar-sub-color: var(--navigation-color);
+  --navtopbar-sub-color-hover: var(--navigation-color);
+  --navtopbar-sub-color-active: var(--navigation-color);
+  --form-input-bg: var(--brand-primary-50);
+  --form-input-bg-hover: var(--brand-primary-50);
+  --form-input-bg-focus: var(--brand-primary-50);
+  --form-input-border-focus-color: var(--brand-primary-600);
+  --btn-default-bg: var(--gray-lighter);
+  --btn-default-color: var(--font-color-base);
+  --btn-link-bg-hover: var(--brand-default-900);
+  --btn-primary-color: var(--font-color-base);
+  --btn-success-color: var(--font-color-base);
+  --btn-warning-color: var(--font-color-base);
+  --btn-danger-color: var(--font-color-base);
+  --header-text-color: var(--font-color-default);
+  --header-text-color-detail: rgba(255, 255, 255, 0.2);
+  --tabs-bg-pills: #343a40;
+}
+
+:root.theme-neutral {
+  --brand-primary: rgb(37, 37, 67);
+  --sidebar-bg: var(--brand-default-100);
+  --navigation-color: var(--font-color-base);
+  --navigation-color-hover: var(--font-color-base);
+  --navigation-color-active: var(--font-color-base);
+  --navigation-sub-color: var(--navigation-color);
+  --navigation-sub-color-hover: var(--navigation-color-hover);
+  --navigation-sub-color-active: var(--navigation-color-active);
+  /* Sidebar Navigation */
+  --navigation-bg: var(--topbar-bg);
+  --navigation-bg-hover: rgba(0, 0, 0, 0.1);
+  --navigation-bg-active: rgba(0, 0, 0, 0.1);
+  --navigation-sub-bg: rgba(0, 0, 0, 0.1);
+  --navigation-sub-bg-hover: var(--navigation-bg-hover);
+  --navigation-sub-bg-active: var(--navigation-bg-active);
+  --navigation-border-color: var(--navigation-bg-hover);
+  --navsidebar-bg: var(--sidebar-bg);
+  --navsidebar-bg-hover: var(--navigation-bg-hover);
+  --navsidebar-bg-active: var(--navigation-bg-active);
+  --navsidebar-sub-bg: rgba(0, 0, 0, 0.1);
+  --navsidebar-sub-bg-hover: var(--navigation-bg-hover);
+  --navsidebar-sub-bg-active: var(--navigation-bg-active);
+  --navsidebar-sub-bg-header: rgba(0, 0, 0, 0.1);
+  --navsidebar-sub-bg-collapsed: var(--brand-primary-50);
+  --navsidebar-border-color: var(--border-color-default);
+  --navsidebar-shadow: 0 0 1px rgb(0 0 0 / 14%), 1px 1px 1px rgba(83, 83, 83, 0.28);
+  --navsidebar-font-size: var(--font-size-default);
+  --navsidebar-sub-font-size: var(--font-size-small);
+  --navsidebar-glyph-size: 20px;
+  --navsidebar-color: var(--navigation-color);
+  --navsidebar-color-hover: var(--navigation-color-hover);
+  --navsidebar-color-active: var(--navigation-color-active);
+  --navsidebar-sub-color: var(--navigation-color);
+  --navsidebar-sub-color-hover: var(--navigation-color-hover);
+  --navsidebar-sub-color-active: var(--navigation-color-active);
+  --navsidebar-width-closed: 52px;
+  --navsidebar-width-open: 232px;
+  --navsidebar-toggle-size: 32px;
+  --border-radius-s: 0;
+  --border-radius-m: 1px;
+  --border-radius-l: 2px;
+}
+
+:root {
+  /* Brand Colors */
+  --brand-primary: #264ae5;
+  --brand-success: #16aa16;
+  --brand-warning: #cd8501;
+  --brand-danger: #EA3337;
+  --brand-default: color-mix(in srgb, var(--brand-primary) 10%, #e7e7e9);
+  --gray: #B8BABF;
+}
+
+/*
+DISCLAIMER:
+This mapping file provides defaults for sass variables to provide backwards compatibility for modules which are still using SASS variables.
+Do not change this file because it is core styling. Customizing core files will make updating Atlas much more difficult in the future.
+*/
+/* Brand Colors */
+/* Gray Shades */
+/* Default Font Size & Color */
+/* Global Border */
+/* Topbar */
+/* Sidebar */
+/* Topbar mobile */
+/* Navbar Brand Name */
+/* Background Colors */
+/* Default Link Color */
+/* Font Family */
+/* Font Sizes */
+/* Font Weights */
+/* Header Font Sizes */
+/* Header Font Weight */
+/* Line Height */
+/* Header Margin */
+/* Font Colors */
+/* Navigation */
+/* Sidebar Navigation */
+/* Topbar Navigation */
+/* Shadows */
+/* Form Inputs */
+/* Buttons */
+/* Header */
+/* Grid */
+/* Tabs */
+/* Modal */
+/* Data View */
+/* Alerts */
+/* Wizard */
+/* Labels */
+/* Groupbox */
+/* Callouts */
+/* Timeline */
+/* Accordion */
+/* Spacing */
+/* Brand Variants */
+/* Alerts */
+/* Labels */
+/* Groupbox */
+/* Callouts */
 .settings-page {
   --sp-color-bg-base: #f6f7fb;
   --sp-color-bg-card: #ffffff;
@@ -30070,6 +30276,13 @@ Do not change this file because it is core styling. Customizing core files will 
   font-size: var(--sp-font-base);
   font-weight: var(--sp-font-weight-normal);
   color: var(--sp-color-text-secondary);
+  line-height: var(--sp-line-height-normal);
+  margin: 0;
+}
+.settings-page__page-content-title {
+  font-size: var(--sp-font-base);
+  font-weight: var(--sp-font-weight-normal);
+  color: var(--sp-color-text-primary);
   line-height: var(--sp-line-height-normal);
   margin: 0;
 }
