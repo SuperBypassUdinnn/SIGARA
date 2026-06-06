@@ -7,7 +7,6 @@
    White Dominant + Green Accent
 ===================================== */
 
-
 /* =====================================
    GLOBAL PAGE
 ===================================== */
@@ -18,9 +17,8 @@
     padding: 16px 20px 24px 20px !important;
 }
 
-
 /* =====================================
-   MODERN STICKY TOPBAR
+   TOPBAR - CLEAN VERSION
 ===================================== */
 
 .decision-topbar,
@@ -29,22 +27,78 @@
     top: 0 !important;
     z-index: 999 !important;
 
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-
-    padding: 18px 20px !important;
-
-    background: rgba(58, 166, 96, 0.2) !important;
-
-    backdrop-filter: blur(14px) !important;
+    background: rgba(58, 166, 96, 0.20) !important;
 
     border-bottom: 1px solid #edf3ef !important;
 
     box-shadow:
         0 4px 18px rgba(0, 0, 0, 0.03) !important;
+
+    padding: 14px 16px !important;
+
+    min-height: 78px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
 }
 
+/* =====================================
+   DECISION PAGE TOPBAR
+===================================== */
+
+.decision-topbar {
+    justify-content: space-between !important;
+}
+
+/* LEFT SIDE */
+.decision-topbar > :first-child {
+    flex: 0 0 auto !important;
+}
+
+/* TITLE CENTER */
+.decision-page-title {
+    flex: 1 !important;
+
+    text-align: center !important;
+
+    font-size: 18px !important;
+    font-weight: 700 !important;
+
+    color: #1f2d2a !important;
+
+    line-height: 1.2 !important;
+
+    margin: 0 !important;
+}
+
+/* RIGHT BUTTON */
+.decision-topbar > :last-child {
+    flex: 0 0 auto !important;
+}
+
+/* =====================================
+   HISTORY PAGE TOPBAR
+===================================== */
+
+.history-topbar {
+    justify-content: flex-start !important;
+}
+
+/* HISTORY TITLE */
+.history-page-title {
+    font-size: 18px !important;
+
+    font-weight: 700 !important;
+
+    color: #1f2d2a !important;
+
+    line-height: 1.2 !important;
+
+    margin: 0 auto !important;
+
+    transform: translateX(-18px) !important;
+}
 
 /* =====================================
    PAGE TITLE
@@ -62,7 +116,6 @@
 
     letter-spacing: -0.2px !important;
 }
-
 
 /* =====================================
    MITIGATION CARD
@@ -91,7 +144,6 @@
     gap: 12px !important;
 }
 
-
 /* =====================================
    DECISION TITLE
 ===================================== */
@@ -110,7 +162,6 @@
     margin: 0 !important;
 }
 
-
 /* =====================================
    DECISION DESCRIPTION
 ===================================== */
@@ -127,7 +178,6 @@
     margin: 0 0 10px 0 !important;
 }
 
-
 /* =====================================
    BUTTON WRAPPER ONLY
    (No custom button styling)
@@ -136,7 +186,6 @@
 .decision-button {
     width: fit-content !important;
 }
-
 
 /* =====================================
    HISTORY CARD
@@ -162,7 +211,6 @@
 
     gap: 12px !important;
 }
-
 
 /* =====================================
    HISTORY CONTENT
