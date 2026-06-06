@@ -30698,17 +30698,15 @@ Do not change this file because it is core styling. Customizing core files will 
 
 .logo-login {
   width: 100px;
-  /* Sesuaikan ukuran */
   height: auto;
-  /* Menjaga proporsi */
   margin-bottom: 20px;
-  /* Memberi jarak ke bawah */
-  margin-left: 75px;
-  margin-right: 40px;
+  /* Gunakan auto untuk margin kiri dan kanan agar centering bekerja */
+  margin-left: auto;
+  margin-right: auto;
+  /* Flexbox untuk mengatur konten di DALAM .logo-login */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Ini yang membuat semua isi di dalam card ke tengah */
   justify-content: center;
 }
 
