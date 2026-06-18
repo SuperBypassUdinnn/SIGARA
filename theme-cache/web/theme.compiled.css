@@ -1,21 +1,12 @@
-/* Error: Can't find stylesheet to import.
- *    ,
- * 16 | @use "../../themesource/dashboardmodule/web/main.scss" as module15;
- *    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *    '
- *   C:\KULIAH\SEMESTER 4\RPL\SIGARA\deployment\sass\main.scss 16:1  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a    ,\a 16 | @use \"../../themesource/dashboardmodule/web/main.scss\" as module15;\a    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    '\a   C:\\KULIAH\\SEMESTER 4\\RPL\\SIGARA\\deployment\\sass\\main.scss 16:1  root stylesheet";
+@charset "UTF-8";
+@font-face {
+  font-family: "Atlas_Core$Atlas_Styling";
+  src: url("./fonts/Atlas_Core$Atlas_Styling.ttf") format("truetype");
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9c44666 (commit)
 .Atlas_Core_Controls {
   display: inline-block;
   font-style: normal;
@@ -30218,6 +30209,7 @@ Do not change this file because it is core styling. Customizing core files will 
 /* Labels */
 /* Groupbox */
 /* Callouts */
+<<<<<<< HEAD
 :root {
   /* Brand Colors */
   --brand-primary: #264ae5;
@@ -30275,6 +30267,8 @@ Do not change this file because it is core styling. Customizing core files will 
 /* Labels */
 /* Groupbox */
 /* Callouts */
+=======
+>>>>>>> 9c44666 (commit)
 :root.theme-dark {
   --brand-primary: color-mix(in srgb, #264ae5, var(--color-base) 25%);
   --brand-success: color-mix(in srgb, #1ac61a, var(--color-base) 25%);
@@ -30796,6 +30790,7 @@ Do not change this file because it is core styling. Customizing core files will 
   justify-content: center;
 }
 
+<<<<<<< HEAD
 :root {
   /* Brand Colors */
   --brand-primary: #264ae5;
@@ -31700,3 +31695,6 @@ Do not change this file because it is core styling. Customizing core files will 
 /*# sourceMappingURL=theme.compiled.css.map */
 =======
 >>>>>>> 78bf735 (commit)
+=======
+/*# sourceMappingURL=theme.compiled.css.map */
+>>>>>>> 9c44666 (commit)
