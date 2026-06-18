@@ -99,14 +99,13 @@
 .logo-login {
     width: 100px;
     height: auto;
-    
-    /* Membuat logo ke tengah */
     display: block; 
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px; /* Jarak antara logo dan teks */
     
-    /* Memberikan jarak ke teks di bawahnya */
-    margin-bottom: 20px;
+    /* Tambahan untuk responsivitas */
+    max-width: 100%;
 }
 
 .logo-login1 {
