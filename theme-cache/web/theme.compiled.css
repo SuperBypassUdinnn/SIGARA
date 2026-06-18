@@ -30274,15 +30274,12 @@ Do not change this file because it is core styling. Customizing core files will 
 .logo-login {
   width: 100px;
   height: auto;
-  margin-bottom: 20px;
-  /* Gunakan auto untuk margin kiri dan kanan agar centering bekerja */
+  /* Membuat logo ke tengah */
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  /* Flexbox untuk mengatur konten di DALAM .logo-login */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* Memberikan jarak ke teks di bawahnya */
+  margin-bottom: 20px;
 }
 
 .logo-login1 {
