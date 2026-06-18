@@ -3,10 +3,6 @@
   font-family: "Atlas_Core$Atlas_Styling";
   src: url("./fonts/Atlas_Core$Atlas_Styling.ttf") format("truetype");
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9c44666 (commit)
 .Atlas_Core_Controls {
   display: inline-block;
   font-style: normal;
@@ -30209,7 +30205,6 @@ Do not change this file because it is core styling. Customizing core files will 
 /* Labels */
 /* Groupbox */
 /* Callouts */
-<<<<<<< HEAD
 :root {
   /* Brand Colors */
   --brand-primary: #264ae5;
@@ -30267,8 +30262,6 @@ Do not change this file because it is core styling. Customizing core files will 
 /* Labels */
 /* Groupbox */
 /* Callouts */
-=======
->>>>>>> 9c44666 (commit)
 :root.theme-dark {
   --brand-primary: color-mix(in srgb, #264ae5, var(--color-base) 25%);
   --brand-success: color-mix(in srgb, #1ac61a, var(--color-base) 25%);
@@ -30790,7 +30783,6 @@ Do not change this file because it is core styling. Customizing core files will 
   justify-content: center;
 }
 
-<<<<<<< HEAD
 :root {
   /* Brand Colors */
   --brand-primary: #264ae5;
@@ -31693,8 +31685,3 @@ Do not change this file because it is core styling. Customizing core files will 
 }
 
 /*# sourceMappingURL=theme.compiled.css.map */
-=======
->>>>>>> 78bf735 (commit)
-=======
-/*# sourceMappingURL=theme.compiled.css.map */
->>>>>>> 9c44666 (commit)
